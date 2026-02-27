@@ -1,9 +1,3 @@
-/* =============================================
-   JA NEKRETNINE — Luxury Real Estate Website
-   Aesthetic: Dark luxury, editorial, refined
-   Colors: Near-black, warm gold/green accent
-   ============================================= */
-
 :root {
   --black: #0d0d0d;
   --dark: #141414;
@@ -854,4 +848,375 @@ p:last-child { margin-bottom: 0; }
   .hero__title { font-size: 2.8rem; }
   .strip__inner { gap: 16px; font-size: 10px; }
   .strip__dot { display: none; }
+}
+
+/* ============================
+   NAŠE NEKRETNINE
+   ============================ */
+.nekretnine { background: var(--black); }
+
+.nekretnine__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+.nekretnine__sub {
+  font-size: 16px;
+  color: var(--light-mid);
+  line-height: 1.8;
+}
+
+/* FILTERS */
+.nekretnine__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--dark-3);
+  color: var(--light-mid);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.filter-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* GRID */
+.nekretnine__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--dark-3);
+  margin-bottom: 64px;
+  min-height: 200px;
+}
+.nekretnine__loading {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  color: var(--mid);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--dark);
+}
+.nekretnine__empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  color: var(--mid);
+  font-size: 14px;
+  background: var(--dark);
+}
+
+/* CARD */
+.nekr-card {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.nekr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+.nekr-card__img {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--dark-2);
+}
+.nekr-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.nekr-card:hover .nekr-card__img img {
+  transform: scale(1.07);
+}
+.nekr-card__img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+  color: var(--mid);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.nekr-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--green);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+.nekr-card__badge--iznajmljivanje {
+  background: var(--gold);
+  color: var(--black);
+}
+.nekr-card__featured {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(13,13,13,0.85);
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--green);
+}
+
+.nekr-card__body {
+  padding: 28px 32px 32px;
+}
+.nekr-card__lokacija {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.nekr-card__naziv {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.nekr-card__opis {
+  font-size: 13.5px;
+  color: var(--light-mid);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nekr-card__meta {
+  display: flex;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dark-3);
+  margin-bottom: 20px;
+}
+.nekr-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--light-mid);
+}
+.nekr-card__meta-item svg {
+  width: 14px; height: 14px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.nekr-card__cijena {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+}
+.nekr-card__cijena span {
+  font-size: 13px;
+  color: var(--light-mid);
+  font-family: var(--font-body);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/* FOOTER LINK */
+.nekretnine__footer {
+  text-align: center;
+  padding-top: 8px;
+}
+.nekretnine__footer p {
+  font-size: 15px;
+  color: var(--light-mid);
+}
+.nekretnine__link {
+  color: var(--green);
+  border-bottom: 1px solid var(--green);
+  padding-bottom: 1px;
+  transition: opacity 0.3s;
+}
+.nekretnine__link:hover { opacity: 0.7; }
+
+/* MODAL */
+.nekr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.nekr-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.nekr-modal {
+  background: var(--dark);
+  border: 1px solid var(--dark-3);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.nekr-modal-overlay.open .nekr-modal {
+  transform: translateY(0);
+}
+.nekr-modal__close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: 1px solid var(--dark-3);
+  color: var(--light);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+  z-index: 1;
+}
+.nekr-modal__close:hover { border-color: var(--green); color: var(--green); }
+.nekr-modal__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--dark-2);
+}
+.nekr-modal__img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.nekr-modal__body { padding: 40px; }
+.nekr-modal__tip {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.nekr-modal__naziv {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.nekr-modal__lokacija {
+  font-size: 14px;
+  color: var(--light-mid);
+  margin-bottom: 24px;
+}
+.nekr-modal__opis {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--light);
+  margin-bottom: 32px;
+}
+.nekr-modal__detalji {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--dark-3);
+  margin-bottom: 32px;
+}
+.nekr-modal__detalj {
+  background: var(--dark-2);
+  padding: 20px 24px;
+  text-align: center;
+}
+.nekr-modal__detalj-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+.nekr-modal__detalj-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 500;
+}
+.nekr-modal__cijena {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--dark-3);
+}
+.nekr-modal__cijena-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.nekr-modal__cijena-broj {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--green);
+}
+.nav__logo-img {
+  height: 48px;
+  width: auto;
+}
+
+/* RESPONSIVE NEKRETNINE */
+@media (max-width: 1024px) {
+  .nekretnine__grid { grid-template-columns: repeat(2, 1fr); }
+  .nekr-modal__detalji { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .nekretnine__grid { grid-template-columns: 1fr; }
+  .nekr-modal__body { padding: 24px; }
+  .nekr-modal__naziv { font-size: 1.5rem; }
+  .nekr-modal__detalji { grid-template-columns: repeat(3, 1fr); }
+  .nekr-modal__cijena { flex-direction: column; gap: 8px; align-items: flex-start; }
 }
